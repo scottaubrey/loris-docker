@@ -1,0 +1,12 @@
+*.pyc
+*.pyo
+*.pyd
+__pycache__
+*.git
+*.hg
+*.svn
+*.tox
+*.venv
+build
+dist
+*.egg-info
