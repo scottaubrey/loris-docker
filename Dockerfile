@@ -5,7 +5,7 @@ ENV HOME /root
 # No ncurses prompts
 ENV DEBIAN_FRONTEND noninteractive
 
-# Update packages and install tools 
+# Update packages and install tools
 RUN apt-get update -y --fix-missing
 RUN apt-get install -y --no-install-recommends \
     gcc \
@@ -23,7 +23,9 @@ RUN apt-get install -y --no-install-recommends \
     libwebp-dev \
     libxml2-dev \
     libxslt1-dev \
-    zlib1g-dev
+    zlib1g-dev \
+    libffi-dev \
+    libssl-dev
 
 RUN python3 -m pip install --upgrade pip
 
@@ -50,7 +52,7 @@ WORKDIR /opt/loris
 
 # this is what uwsgi will use to init loris.
 # overwrites the one generated during `setup.py`
-COPY loris2.wsgi /var/www/loris2/loris2.wsgi 
+COPY loris2.wsgi /var/www/loris2/loris2.wsgi
 
 
 # Configure uwsgi+wsgi
